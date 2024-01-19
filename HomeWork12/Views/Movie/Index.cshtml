@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Movie>
+
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Products</h1>
+<a class="btn btn-info" asp-area="" asp-controller="Movie" asp-action="Create">Create</a>
+<hr />
+
+
+<div class="d-flex justify-content-around flex-wrap align-content-around">
+
+	@foreach (var movies in Model)
+	{
+		<div class="card" style="width:300px">
+			<div class="card-body">
+				<h5 class="card-title">Movie: @movies.Name</h5>
+				<p class="card-text">Director: @movies.Director</p>
+				<p class="card-text">Style: @movies.Style</p>
+				<p class="card-text">Information: @movies.Information</p>
+				<p>Date: @movies.DateMovie</p>
+				<p>Time: @movies.TimeMovies</p>
+				<p class="card-text">Id: @movies.Id</p>
+
+				<div role="group" class="w-60 btn-group">
+					<span style="margin-right: 5px;">
+						<a asp-controller="Movie" asp-action="Edit" asp-route-id="@movies.Id" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i>Edit</a>
+					</span>
+					<span>
+						<a asp-controller="Movie" asp-action="Delete" asp-route-id="@movies.Id" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i>Delete</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	}
+</div>

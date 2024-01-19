@@ -1,0 +1,63 @@
+﻿@model Movie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container shadow p-5">
+    <div class="row pb-2">
+        <h2>Edit Movie</h2>
+    </div>
+
+    <form method="post" asp-action="Edit">
+        <div asp-validation-summary="All"></div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Name">Contact name</label>
+                <input type="text" class="form-control mb-3" asp-for="Name" placeholder="Enter name" required>
+                <span asp-validation-for="Name" class="alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Director">Director</label>
+                <input type="text" class="form-control mb-3" asp-for="Director" placeholder="Enter director" required>
+                <span asp-validation-for="Director" class="alert-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Style">Style</label>
+                <input type="text" class="form-control mb-3" asp-for="Style" placeholder="Enter style" required>
+                <span asp-validation-for="Style" class="alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Information">Information</label>
+                <input type="text" class="form-control mb-3" asp-for="Information" placeholder="Enter information about movie" required>
+                <span asp-validation-for="Information" class="alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="DateMovie">Date</label>
+                <input type="date" class="form-control mb-3" asp-for="DateMovie" required />
+                <span asp-validation-for="TimeMovies" class="alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="TimeMovies">Time</label>
+                <input type="time" class="form-control mb-3" asp-for="TimeMovies" required />
+                <span asp-validation-for="TimeMovies" class="alert-danger"></span>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Save changes</button>
+        <a asp-controller="Movie" asp-action="Index" class="btn btn-lg btn-warning p-2">Back</a>
+    </form>
+
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
